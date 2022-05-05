@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 const app = express();
@@ -12,15 +12,10 @@ app.use(express.json());
 // database connection 
 
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ham2h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_Cars}:${process.env.DB_PASSWORD}@cluster0.ham2h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-// client.connect(err => {
-//   const collection = client.db("CuteCar").collection("cars");
-//   // perform actions on the collection object
-//   console.log('Mongo is connected');
-//   client.close();
-// });
+
 
 // Getting all card 
 
@@ -58,6 +53,23 @@ async function run(){
             const result = await carCollection.deleteOne(query);
             res.send(result);
         });
+
+          // update cars
+          app.put('/cars/:id', async(req, res) =>{
+            const id = req.params.id;
+            const updatedCars = req.body;
+            const filter = {_id: ObjectId(id)};
+            const options = { upsert: true };
+            const updatedDoc = {
+                $set: {
+                    quantity: updatedCars.quantity,
+                    
+                }
+            };
+            const result = await carCollection.updateOne(filter, updatedDoc, options);
+            res.send(result);
+
+        })
 
     }
     finally{
