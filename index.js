@@ -44,6 +44,13 @@ async function run(){
             res.send(cars);
         });
 
+         // POST api or adding a new car
+         app.post('/cars', async(req, res) =>{
+            const newcars = req.body;
+            const result = await carCollection.insertOne(newcars);
+            res.send(result);
+        });
+
         
 
     }
