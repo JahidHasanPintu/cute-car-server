@@ -6,8 +6,6 @@ or [Click to visit Cute Car- Ware house management website](https://cute-car-inv
 Live Server site Link: https://secure-cliffs-70594.herokuapp.com/
 or [Click to visit Cute Car- Ware house Server site](https://secure-cliffs-70594.herokuapp.com/).
 
-Client side github private repo link: https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-JahidHasanPintu
-
 ## To complete this whole project I used
 
 - React
@@ -24,8 +22,8 @@ Client side github private repo link: https://github.com/ProgrammingHeroWC4/ware
 # Top feature of this website
 
 - Awsome Slider - I made a carousel of two img which looks good.
-- Service section - From the service section any client can easily enroll for the gym package.
-- Galary section - Any visitor can easily overview the previous result of the clients.
+- Cars section - From the cars section any client can easily simple looks to main cars.
+- Counter section - Any visitor can easily overview the previous whole inventory.
 - Contact section - Visitor can easily get in touch with the contact area.
 - car number counting
 - Finally the footer area.
