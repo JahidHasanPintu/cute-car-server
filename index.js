@@ -54,22 +54,22 @@ async function run(){
             res.send(result);
         });
 
-          // update cars
-          app.put('/cars/:id', async(req, res) =>{
-            const id = req.params.id;
-            const updatedCars = req.body;
-            const filter = {_id: ObjectId(id)};
-            const options = { upsert: true };
-            const updatedDoc = {
-                $set: {
-                    quantity: updatedCars.quantity,
+        //   // update cars
+        //   app.put('/cars/:id', async(req, res) =>{
+        //     const id = req.params.id;
+        //     const updatedCars = req.body;
+        //     const filter = {_id: ObjectId(id)};
+        //     const options = { upsert: true };
+        //     const updatedDoc = {
+        //         $set: {
+        //             quantity: updatedCars.quantity,
                     
-                }
-            };
-            const result = await carCollection.updateOne(filter, updatedDoc, options);
-            res.send(result);
+        //         }
+        //     };
+        //     const result = await carCollection.updateOne(filter, updatedDoc, options);
+        //     res.send(result);
 
-        })
+        // })
 
          // update quantity and sold
          app.put('/cars/:id', async(req, res) =>{
