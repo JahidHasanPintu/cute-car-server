@@ -125,10 +125,10 @@ async function run(){
             const decodedEmail = req.decoded.email;
             const email = req.query.email;
             if (email === decodedEmail) {
-                const query = { email: email };
-                const cursor = orderCollection.find(query);
-                const orders = await cursor.toArray();
-                res.send(orders);
+                const query = { email: email };                
+                const cursor = carCollection.find(query);
+                const cars = await cursor.toArray();
+                res.send(cars);
             }
             else{
                 res.status(403).send({message: 'forbidden access'})
